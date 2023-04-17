@@ -3,7 +3,7 @@ import { Button, Form, ListGroup,  Container, Row, Col, } from 'react-bootstrap'
 import { UserButton, useAuth } from "@clerk/clerk-react";
 import { useRouter } from 'next/router'
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getToDoList, addToDo, updateToDo, addDone, getToDoItem} from "@/modules/data";
+import { getToDoList, addToDo, updateToDone, addDone, getToDoItem} from "@/modules/data";
 import Link from 'next/link'
 
 
@@ -109,10 +109,9 @@ const substring = (text) => {
                   variant="success"
                   className="float-right ms-2"
                   onClick={async () => {
-                    todo.completed=true
                     const token = await getToken({ template: "codehooks" })
-                    addDone(token,todo)
-                    //router.push("/done")
+                    updateToDone(token,userId, todo._id)
+                    router.push("/done")
                   }
                   }
                 >Done!

@@ -14,12 +14,11 @@ function DonePage() {
   
 
   useEffect(() => {
-    async function getValues() {
+    async function getDoneValues() {
         if(userId){
             try {
                 const token = await getToken({ template: "codehooks" });
                 const res = await getDone(token,userId);
-                console.log(res)
                 res.sort((a, b) => new Date(a.time) - new Date(b.time));
                 return res;
             } catch (error) {
@@ -29,7 +28,7 @@ function DonePage() {
         } else return [];
         
     }
-    getValues().then((res) => {
+    getDoneValues().then((res) => {
         console.log(res);
         setTodos(res);
     });
@@ -68,14 +67,13 @@ const substring = (text) => {
                 <Button
                   variant="success"
                   className="float-right ms-2"
-                  onClick={() => add(index)}
-                >Done!
+                > This task has been completed, good job!
                 </Button>
               </ListGroup.Item>
             ))}
           </ListGroup>
-          <div className='ms-2'>
-          <Button type='button' href="/todos">Back to the to-do list?</Button>
+          <div className='mt-2 align-items-center'>
+          <Button type='button'  href="/todos">Back to the to-do list?</Button>
           </div>
         </Col>
       </Row>

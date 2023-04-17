@@ -22,7 +22,7 @@ export async function addToDo(authToken, toDo) {
 
 export async function addDone(authToken, toDo) {
     const result = await fetch(`${backend_base}/done`, {
-        'method': 'POST',
+        'method': 'PUT',
         'headers': {
             'Authorization': 'Bearer ' + authToken,
             'Content-Type': 'application/json'
@@ -37,7 +37,6 @@ export async function getDone(authToken, userId) {
             'method':'GET',
             'headers': {'Authorization': 'Bearer ' + authToken}
         })
-        console.log(result.json())
         return await result.json();
 }
 
@@ -78,5 +77,21 @@ export async function updateToDo(authToken,userId,toDoId,text) {
         },
         'body': JSON.stringify(temp)
         });
+    return result;
+}
+
+export async function updateToDone(authToken,userId,toDoId) {
+    let temp = (await getToDoItem(authToken,userId,toDoId))[0];
+    temp.completed = true;
+    // console.log("taskData.taskDescription: " + taskData.taskDescription);
+    const result = fetch(`${backend_base}/updateToDoList?userId=${userId}&_id=${toDoId}`, {
+        'method': 'PUT',
+        'headers': {
+            'Authorization': 'Bearer ' + authToken,
+            'Content-Type': 'application/json',
+        },
+        'body': JSON.stringify(temp)
+        });
+    console.log(result)
     return result;
 }
