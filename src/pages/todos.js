@@ -111,7 +111,7 @@ const substring = (text) => {
                   onClick={async () => {
                     const token = await getToken({ template: "codehooks" })
                     updateToDone(token,userId, todo._id)
-                    router.push("/done")
+                    await router.push("/done")
                   }
                   }
                 >Done!

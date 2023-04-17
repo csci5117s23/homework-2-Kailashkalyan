@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import { UserButton, useAuth } from "@clerk/clerk-react";
 import { useRouter } from 'next/router'
-import { getToDoItem, updateToDo } from '@/modules/data';
+import { getToDoItem, updateToDo, updateToDone } from '@/modules/data';
 
 
 export default function Viewtodo( {id}) {
@@ -17,7 +17,7 @@ export default function Viewtodo( {id}) {
 
   const [item, setItem] = useState("")
   const [desc, setDesc] = useState("")
-  
+  const router = useRouter();
   const handleNewTodoChange = (event) => {
     setDesc(event.target.value);
   };
@@ -67,7 +67,11 @@ export default function Viewtodo( {id}) {
             <Button variant="primary" className="mt-3" onClick={update}>
               Save
             </Button>
-            <Button variant="primary" className="mt-3 ms-5">
+            <Button variant="primary" className="mt-3 ms-5" onClick={async () => {
+                    const token = await getToken({ template: "codehooks" })
+                    updateToDone(token,userId, item._id)
+                    await router.push("/done")
+                  }}>
               Done
             </Button>
             
