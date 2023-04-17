@@ -48,7 +48,7 @@ export default function Viewtodo( {id}) {
       <Row>
         <Col>
           <h1 className="display-3 font-weight-bold" > <UserButton className="float-right">
-            </UserButton> {id} <Button href="/todos" variant="info" className="float-right">
+            </UserButton> Edit your to-do item <Button href="/todos" variant="info" className="float-right">
               Back to To-Do List!
             </Button> </h1> 
             
@@ -60,7 +60,7 @@ export default function Viewtodo( {id}) {
                 as="textarea"
                 value={desc}
                 onChange={handleNewTodoChange}
-                rows={10}
+                rows={5}
                 required
               />
             </Form.Group>
