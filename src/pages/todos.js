@@ -66,6 +66,11 @@ const substring = (text) => {
   }
 };
   
+const onFormSubmit = e => {
+  e.preventDefault();
+  // send state to server with e.g. `window.fetch`
+}
+
   const handleDelete = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
@@ -86,7 +91,7 @@ const substring = (text) => {
             </UserButton> Your never-ending to-do List! </h1>
           <hr className="hr-light" />
            
-          <Form onClick={add}>
+          <Form onSubmit={add}>
             <Form.Group controlId="newTodo">
               <Form.Control
                 type="text"
@@ -95,7 +100,7 @@ const substring = (text) => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" className="mt-3">
+            <Button type="submit" variant="primary" className="mt-3">
               Add Todo task
             </Button>
           </Form>
@@ -110,10 +115,8 @@ const substring = (text) => {
                   className="float-right ms-2"
                   onClick={async () => {
                     const token = await getToken({ template: "codehooks" })
-                    updateToDone(token,userId, todo._id)
-                    const data = updateToDone(token,userId, todo._id)
-                    console.log(data)
-                    await router.push("/done")
+                    await updateToDone(token,userId, todo._id)
+                    router.push("/done")
                   }
                   }
                 >Done!
