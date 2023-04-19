@@ -93,5 +93,5 @@ export async function updateToDone(authToken,userId,toDoId) {
         'body': JSON.stringify(temp)
         });
     console.log(result)
-    return result;
+    return await result;
 }

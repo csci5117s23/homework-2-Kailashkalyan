@@ -37,8 +37,8 @@ function DonePage() {
 
 
 const substring = (text) => {
-  if (text.length  > 100) {
-      return text.substr(0,100) + "..."
+  if (text.length  > 50) {
+      return text.substr(0,50) + "..."
   }
   else {
     return text

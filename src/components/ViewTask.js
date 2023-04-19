@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { UserButton, useAuth } from "@clerk/clerk-react";
 import { useRouter } from 'next/router'
 import { getToDoItem, updateToDo, updateToDone } from '@/modules/data';
-
+import { Alert } from 'react-bootstrap';
 
 export default function Viewtodo( {id}) {
 
@@ -35,6 +35,9 @@ export default function Viewtodo( {id}) {
   }, [isLoaded, id]);
 
   async function update() {
+    <Alert variant="success">
+        This is a success alert — check it out!
+      </Alert>
     const token = await getToken({ template: "codehooks" });
     updateToDo(token,userId, id, desc)
   }

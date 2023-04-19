@@ -58,8 +58,8 @@ async function add() {
 }
 
 const substring = (text) => {
-  if (text.length  > 100) {
-      return text.substr(0,100) + "..."
+  if (text.length  > 50) {
+      return text.substr(0,50) + "..."
   }
   else {
     return text
@@ -111,6 +111,8 @@ const substring = (text) => {
                   onClick={async () => {
                     const token = await getToken({ template: "codehooks" })
                     updateToDone(token,userId, todo._id)
+                    const data = updateToDone(token,userId, todo._id)
+                    console.log(data)
                     await router.push("/done")
                   }
                   }
