@@ -1,7 +1,16 @@
 import Link from 'next/link'
 import { Badge, Button, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useRouter } from 'next/router'
+import { UserButton, useAuth } from "@clerk/clerk-react";
+
 export default function todo() {
+  const {isLoaded, userId, getToken, isSignedIn} = useAuth();
+  const router = useRouter();
+
+  if (!isLoaded) return <>Loading...</>;
+  else if (isLoaded && !isSignedIn) router.push("/");
+  else {
     return (
         <Container className='d-flex justify-content-center align-items-center'>
           <div>
@@ -13,4 +22,5 @@ export default function todo() {
           </div>
         </Container>
       );
+    }
   }

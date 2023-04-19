@@ -57,7 +57,7 @@ const substring = (text) => {
       <Row>
         <Col>
           <h1 className="display-3 font-weight-bold" > <UserButton className="float-right">
-            </UserButton> Your never-ending to-do List! </h1>
+            </UserButton> Your completed to-do List! </h1>
           <hr className="hr-light" />
            
           <ListGroup className="mt-3">

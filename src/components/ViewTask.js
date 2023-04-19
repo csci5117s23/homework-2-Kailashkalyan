@@ -11,7 +11,7 @@ import { Alert } from 'react-bootstrap';
 export default function Viewtodo( {id}) {
 
 
-  const { isLoaded, userId, sessionId, getToken } = useAuth();
+  const { isLoaded, userId, isSignedIn, getToken } = useAuth();
 
   const [newName, setNewName] = useState("");
 
@@ -42,9 +42,9 @@ export default function Viewtodo( {id}) {
     updateToDo(token,userId, id, desc)
   }
 
-  if (!isLoaded) {
-    return <span> loading... </span>;
-  } else {
+  if (!isLoaded) return <>Loading...</>;
+  else if (isLoaded && !isSignedIn) router.push("/");
+  else {
     return (
     
     <Container className="d-flex justify-content-center align-items-center">
@@ -72,8 +72,8 @@ export default function Viewtodo( {id}) {
             </Button>
             <Button variant="primary" className="mt-3 ms-5" onClick={async () => {
                     const token = await getToken({ template: "codehooks" })
-                    updateToDone(token,userId, item._id)
-                    await router.push("/done")
+                    await updateToDone(token,userId, item._id)
+                    router.push("/done")
                   }}>
               Done
             </Button>
