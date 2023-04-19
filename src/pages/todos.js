@@ -66,10 +66,6 @@ const substring = (text) => {
   }
 };
   
-const onFormSubmit = e => {
-  e.preventDefault();
-  // send state to server with e.g. `window.fetch`
-}
 
   const handleDelete = (index) => {
     const newTodos = [...todos];
@@ -91,7 +87,7 @@ const onFormSubmit = e => {
             </UserButton> Your never-ending to-do List! </h1>
           <hr className="hr-light" />
            
-          <Form onSubmit={add}>
+          <Form onClick={add}>
             <Form.Group controlId="newTodo">
               <Form.Control
                 type="text"
@@ -100,7 +96,7 @@ const onFormSubmit = e => {
                 required
               />
             </Form.Group>
-            <Button type="submit" variant="primary" className="mt-3">
+            <Button variant="primary" className="mt-3">
               Add Todo task
             </Button>
           </Form>
