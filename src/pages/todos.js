@@ -23,7 +23,7 @@ function TodoListPage() {
             try {
                 const token = await getToken({ template: "codehooks" });
                 const res = await getToDoList(token,userId);
-                console.log(res)
+                //console.log(res)
                 res.sort((a, b) => new Date(a.time) - new Date(b.time));
                 return res;
             } catch (error) {

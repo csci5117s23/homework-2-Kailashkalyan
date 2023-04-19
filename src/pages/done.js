@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 function DonePage() {
   const {isLoaded, userId, getToken, isSignedIn} = useAuth();
-  const [todos, setTodos] = useState([]);
+  const [donetodos, setdoneTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
   const router = useRouter();
   
@@ -19,6 +19,7 @@ function DonePage() {
             try {
                 const token = await getToken({ template: "codehooks" });
                 const res = await getDone(token,userId);
+                //console.log(res)
                 res.sort((a, b) => new Date(a.time) - new Date(b.time));
                 return res;
             } catch (error) {
@@ -30,7 +31,7 @@ function DonePage() {
     }
     getDoneValues().then((res) => {
         console.log(res);
-        setTodos(res);
+        setdoneTodos(res);
     });
 }, [isLoaded])
 
@@ -60,7 +61,7 @@ const substring = (text) => {
           <hr className="hr-light" />
            
           <ListGroup className="mt-3">
-            {todos.map((todo, index) => (
+            {donetodos.map((todo, index) => (
               <ListGroup.Item key={index}>
                 {substring(todo.text)}
                 <Link href={`/todo/${todo._id}`}><button className="float-right ms-2">More info</button></Link>
