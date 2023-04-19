@@ -31,7 +31,7 @@
       "1879a7bf321-8rqwacxs39buzj": {
         "time": "2023-04-19T17:07:07.168Z",
         "category": "",
-        "completed": false,
+        "completed": true,
         "userId": "user_2OPMSnFdO9npf5UA1JrmUYORDBi",
         "text": "security",
         "_id": "1879a7bf321-8rqwacxs39buzj"
@@ -43,38 +43,6 @@
         "userId": "user_2OPMSnFdO9npf5UA1JrmUYORDBi",
         "text": "this hw is very cool hehe",
         "_id": "1879a7c1c06-gxlp5bbl0b4buq"
-      },
-      "1879a7f9b54-36syt5q1q6pt4l": {
-        "time": "2023-04-19T17:11:06.835Z",
-        "category": "",
-        "completed": true,
-        "userId": "user_2OXxr9OTqmfwWPk3i7pGffMOCqM",
-        "text": "suh",
-        "_id": "1879a7f9b54-36syt5q1q6pt4l"
-      },
-      "1879a7fa68a-xja392833pg9f3": {
-        "time": "2023-04-19T17:11:09.705Z",
-        "category": "",
-        "completed": true,
-        "userId": "user_2OXxr9OTqmfwWPk3i7pGffMOCqM",
-        "text": "test",
-        "_id": "1879a7fa68a-xja392833pg9f3"
-      },
-      "1879a7fb73d-ur9xaeucpa7zi2": {
-        "time": "2023-04-19T17:11:13.980Z",
-        "category": "",
-        "completed": true,
-        "userId": "user_2OXxr9OTqmfwWPk3i7pGffMOCqM",
-        "text": "hw done :)",
-        "_id": "1879a7fb73d-ur9xaeucpa7zi2"
-      },
-      "1879a826709-n662yr1qyujgqg": {
-        "time": "2023-04-19T17:14:10.055Z",
-        "category": "",
-        "completed": true,
-        "userId": "user_2OXxr9OTqmfwWPk3i7pGffMOCqM",
-        "text": "testing",
-        "_id": "1879a826709-n662yr1qyujgqg"
       }
     }
   ],
